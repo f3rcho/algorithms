@@ -5,9 +5,9 @@
  */
 function findIndex(arr, val) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === val) return i
+    if (arr[i] === val) return i;
   }
-  return -1
+  return -1;
 }
 
-console.log(findIndex([1, 2, 3, 10, 12], 12))
+console.log(findIndex([1, 2, 3, 10, 12], 12));
