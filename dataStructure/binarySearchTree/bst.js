@@ -68,6 +68,19 @@ class BinarySearchTree {
     }
     return data;
   }
+
+  DFSPreOrder() {
+    let visitedNode = [];
+    let current = this.root;
+
+    function traverse(node) {
+      visitedNode.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return visitedNode;
+  }
 }
 
 let tree = new BinarySearchTree();
