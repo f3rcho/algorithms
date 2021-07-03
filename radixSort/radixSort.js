@@ -1,4 +1,4 @@
-const { getDigit, mostDigits } = require('../helpers/helpers');
+const { getDigit, mostDigits } = require('./helpers/helpers');
 function radixSort(nums) {
   let maxDigitsCount = mostDigits(nums);
   for (k = 0; k < maxDigitsCount; k++) {
