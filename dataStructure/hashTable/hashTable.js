@@ -1,6 +1,6 @@
 'use strict';
 class HashTable {
-  constructor(size = 4) {
+  constructor(size = 53) {
     this.keyMap = new Array(size);
   }
 
@@ -22,9 +22,23 @@ class HashTable {
     }
     this.keyMap[index].push([key, value]);
   }
+  get(key) {
+    let index = this._hash(key);
+    if (this.keyMap[index]) {
+      for (let i = 0; i < this.keyMap[index].length; i++) {
+        if (this.keyMap[index][i][0] === key) {
+          return this.keyMap[index][i];
+        }
+      }
+    }
+    return undefined;
+  }
 }
 let ht = new HashTable();
-ht.set('Hello world', 'goodbye!!');
-ht.set('dogs', 'are cool');
-ht.set('cats', 'are fine');
-ht.set('I love', 'pizza');
+ht.set('maroon', '#800000');
+ht.set('yellow', '#FFFF00');
+ht.set('olive', '#808000');
+ht.set('salmon', '#FA8072');
+ht.set('ligth coral', '#F08080');
+ht.set('mediumvioletred', '#C71585');
+ht.set('plum', '#DDA0DD');
