@@ -22,6 +22,14 @@ class Graph {
       (v) => v !== vertex1
     );
   }
+
+  removeVertex(vertex) {
+    while (this.adjancencyList[vertex].length) {
+      const adjancentVertex = this.adjancencyList[vertex].pop();
+      this.removeEdge(vertex, adjancentVertex);
+    }
+    delete this.adjancencyList[vertex];
+  }
 }
 let g = new Graph();
 g.addVertex('Dallas');
