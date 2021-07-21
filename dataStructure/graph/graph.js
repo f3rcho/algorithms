@@ -13,4 +13,19 @@ class Graph {
     this.adjancencyList[v1].push(v2);
     this.adjancencyList[v2].push(v1);
   }
+
+  removeEdge(vertex1, vertex2) {
+    this.adjancencyList[vertex1] = this.adjancencyList[vertex1].filter(
+      (v) => v !== vertex2
+    );
+    this.adjancencyList[vertex2] = this.adjancencyList[vertex2].filter(
+      (v) => v !== vertex1
+    );
+  }
 }
+let g = new Graph();
+g.addVertex('Dallas');
+g.addVertex('Tokyo');
+g.addVertex('Aspen');
+g.addEdge('Dallas', 'Tokyo');
+g.addEdge('Dallas', 'Aspen');
