@@ -1,16 +1,16 @@
 /**
  * Write a recursive function called nestedEvenSum. Return the sum of all even numbers in an object which may contain nested objects.
  */
-function nestedEvenSum(obj, sum = 0) {
-  for (var key in obj) {
-    if (typeof obj[key] === 'object') {
-      sum += nestedEvenSum(obj[key])
-    } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0) {
-      sum += obj[key]
-    }
-  }
-  return sum
-}
+// function nestedEvenSum(obj, sum = 0) {
+//   for (var key in obj) {
+//     if (typeof obj[key] === 'object') {
+//       sum += nestedEvenSum(obj[key]);
+//     } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0) {
+//       sum += obj[key];
+//     }
+//   }
+//   return sum;
+// }
 
 var obj1 = {
   outer: 2,
@@ -22,7 +22,7 @@ var obj1 = {
       alsoNotANumber: 'yup',
     },
   },
-}
+};
 
 var obj2 = {
   a: 2,
@@ -30,7 +30,49 @@ var obj2 = {
   c: { c: { c: 2 }, cc: 'ball', ccc: 5 },
   d: 1,
   e: { e: { e: 2 }, ee: 'car' },
-}
+};
 
-nestedEvenSum(obj1) // 6
-nestedEvenSum(obj2) // 10
+nestedEvenSum(obj1); // 6
+nestedEvenSum(obj2); // 10
+
+function searchKey(obj, key) {
+  for (var key in obj) {
+    if (typeof obj[key] === 'object') {
+      console.log(true);
+    } else {
+      console.log(false);
+    }
+  }
+}
+console.log(searchKey(configAxios, 'query'));
+var configAxios = {
+  query: {
+    bool: {
+      must: [
+        {
+          match: {
+            status: 'picking',
+          },
+        },
+        {
+          match: {
+            createdBy: 'Javier Padron',
+          },
+        },
+      ],
+      should: [
+        {
+          match: {
+            items: 'picante',
+          },
+        },
+        {
+          match: {
+            items: 'coca',
+          },
+        },
+      ],
+      minimum_should_match: 1,
+    },
+  },
+};
