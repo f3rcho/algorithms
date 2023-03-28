@@ -143,6 +143,14 @@ class SinglyLinkedList {
     }
     console.log(arr);
   }
+
+  traverse() {
+    var current = this.head
+    while(current) {
+      console.log(current.val);
+      current= current.next;
+    }
+  }
 }
 const list = new SinglyLinkedList();
 // For a better test, use the browser
