@@ -92,6 +92,25 @@ class LinkedList<T> {
     return false;
   }
 
+  insert(index: number, value: T) {
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+    if (index === this.length) {
+      return !!this.push(value);
+    }
+    if (index === 0) {
+      return !!this.unshift(value);
+    }
+    let newNode = new ListNode(value);
+    let prevNode = this.get(index - 1);
+    let tempNode = prevNode!.next;
+    prevNode!.next = newNode;
+    newNode.next = tempNode;
+    this.length++;
+    return true;
+  }
+
   traverse() {
     let current = this.head;
     while (current) {
@@ -108,7 +127,9 @@ listTest.push('world');
 listTest.push('from');
 listTest.push('listTest');
 listTest.push('!!!');
-console.log(listTest, 'listTest');
+console.log(listTest.insert(3, 'insetedNode'));
+console.log(listTest.get(3), 'listTest');
+
 // listTest.unshift('...');
 // listTest.push('!!!');
 
