@@ -111,6 +111,18 @@ class LinkedList<T> {
     return true;
   }
 
+  remove(index: number) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+
+    let prevNode = this.get(index - 1);
+    let removedNode = prevNode!.next;
+    prevNode!.next = removedNode!.next;
+    this.length--;
+    return removedNode;
+  }
+
   traverse() {
     let current = this.head;
     while (current) {
@@ -129,6 +141,9 @@ listTest.push('listTest');
 listTest.push('!!!');
 console.log(listTest.insert(3, 'insetedNode'));
 console.log(listTest.get(3), 'listTest');
+console.log(listTest.traverse(), 'listTest');
+console.log(listTest.remove(3), 'remove');
+console.log(listTest.traverse(), 'listTest');
 
 // listTest.unshift('...');
 // listTest.push('!!!');
