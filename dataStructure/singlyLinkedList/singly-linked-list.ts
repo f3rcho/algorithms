@@ -123,6 +123,31 @@ class LinkedList<T> {
     return removedNode;
   }
 
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let next: ListNode<T> | null;
+    let prev: ListNode<T> | null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = node!.next;
+      node!.next = prev!;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
+  print() {
+    var arr = [] as any;
+    var current = this.head;
+    while (current) {
+      arr.push(current.value);
+      current = current.next;
+    }
+    console.log(arr);
+  }
+
   traverse() {
     let current = this.head;
     while (current) {
@@ -141,9 +166,10 @@ listTest.push('listTest');
 listTest.push('!!!');
 console.log(listTest.insert(3, 'insetedNode'));
 console.log(listTest.get(3), 'listTest');
-console.log(listTest.traverse(), 'listTest');
+// console.log(listTest.traverse(), 'listTest');
 console.log(listTest.remove(3), 'remove');
-console.log(listTest.traverse(), 'listTest');
+console.log(listTest.reverse(), 'reverse');
+console.log(listTest.print(), 'reverse');
 
 // listTest.unshift('...');
 // listTest.push('!!!');
