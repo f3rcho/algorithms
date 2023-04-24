@@ -83,6 +83,15 @@ class LinkedList<T> {
     return current;
   }
 
+  set(index: number, value: T) {
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.value = value;
+      return true;
+    }
+    return false;
+  }
+
   traverse() {
     let current = this.head;
     while (current) {
@@ -97,8 +106,9 @@ const listTest = new LinkedList();
 listTest.push('hello');
 listTest.push('world');
 listTest.push('from');
+listTest.push('listTest');
 listTest.push('!!!');
-console.log(listTest.get(3), 'get');
+console.log(listTest, 'listTest');
 // listTest.unshift('...');
 // listTest.push('!!!');
 
