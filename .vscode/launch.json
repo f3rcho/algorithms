@@ -15,8 +15,8 @@
         "-r",
         "ts-node/register"
       ],
-      "cwd": "${workspaceRoot}",
-      "internalConsoleOptions": "openOnSessionStart"
+      "cwd": "${workspaceRoot}/problems-solving/two-sum.ts",
+
     }
   ]
 }

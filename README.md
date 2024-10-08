@@ -31,3 +31,6 @@ Run ts node
 ```bash
     npx ts-node singly-linked-list.ts
 ```
+
+## New problems from
+[codesignal](https://codesignal.com/blog/interview-prep/example-codesignal-questions/)
